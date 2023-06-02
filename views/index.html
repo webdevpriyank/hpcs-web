@@ -1,3 +1,565 @@
-<h6>
-    Home
-</h6>
+<!-- End Header Area -->
+
+<!-- Start Home Area -->
+<!-- <section class="slider-section">
+            <div class="hero-slider owl-carousel owl-theme">
+                <div class="hero-slider-item slider-item-bg-1">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="container">
+                                <div class="slider-text">
+                                    <h1>Professional Cleaning Services Provider</h1>
+                                    <p>Hire us! We are a professional cleaning company offering all type of cleaning and maintenance services.</p>
+
+                                    <a class="default-btn" href="contact">contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-slider-item slider-item-bg-2">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="container">
+                                <div class="slider-text text-center">
+                                    <h1>Let Us Do All The Dirty Work</h1>
+                                    <p>Hire us! We are a professional cleaning company offering all type of cleaning and maintenance services.</p>
+
+                                    <a class="default-btn" href="contact">contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-slider-item slider-item-bg-3">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="container">
+                                <div class="slider-text">
+                                    <h1>Best Cleaning Company in the Country</h1>
+                                    <p>Hire us! We are a professional cleaning company offering all type of cleaning and maintenance services.</p>
+
+                                    <a class="default-btn" href="contact">contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shape-1">
+                <img src="assets/img/shape.png" alt="shape">
+            </div>
+
+            <div class="shape-2">
+                <img src="assets/img/shape2.png" alt="shape">
+            </div>
+
+            <div class="shape-3">
+                <img src="assets/img/shape3.png" alt="shape">
+            </div>
+        </section> -->
+<!-- End Home Area -->
+<div id="slideshow">
+    <div class="slideitem ">
+        <img src="/img/1.png">
+    </div>
+    <!-- <div class="slideitem ">
+                <img src="assets/img/ban2.jpg">
+              </div> -->
+    <!-- <div class="slideitem ">
+                <img src="assets/img/ban3.png">
+              </div> -->
+    <div class="slideitem ">
+        <img src="/img/2.png">
+    </div>
+    <div class="slideitem ">
+        <img src="/img/3.png">
+    </div>
+    <div class="slideitem ">
+        <img src="/img/4.png">
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $("#slideshow > div:gt(0)").hide();
+
+        var buttons = "<button class=\"slidebtn prev\"><i class=\"fa fa-chevron-circle-left\"></i></button><button class=\"slidebtn next\"><i class=\"fa fa-chevron-circle-right\"></i></button\>";
+
+        var slidesl = $('.slideitem').length
+        var d = "<li class=\"dot active-dot\">&bull;</li>";
+        for (var i = 1; i < slidesl; i++) {
+            d = d + "<li class=\"dot\">&bull;</li>";
+        }
+        var dots = "<ul class=\"slider-dots\">" + d + "</ul\>";
+
+        $("#slideshow").append(dots).append(buttons);
+        var interval = setInterval(slide, 3000);
+
+        function intslide(func) {
+            if (func == 'start') {
+                interval = setInterval(slide, 3000);
+            } else {
+                clearInterval(interval);
+            }
+        }
+
+        function slide() {
+            sact('next', 0, 1200);
+        }
+
+        function sact(a, ix, it) {
+            var currentSlide = $('.current');
+            var nextSlide = currentSlide.next('.slideitem');
+            var prevSlide = currentSlide.prev('.slideitem');
+            var reqSlide = $('.slideitem').eq(ix);
+
+            var currentDot = $('.active-dot');
+            var nextDot = currentDot.next();
+            var prevDot = currentDot.prev();
+            var reqDot = $('.dot').eq(ix);
+
+            if (nextSlide.length == 0) {
+                nextDot = $('.dot').first();
+                nextSlide = $('.slideitem').first();
+            }
+
+            if (prevSlide.length == 0) {
+                prevDot = $('.dot').last();
+                prevSlide = $('.slideitem').last();
+            }
+
+            if (a == 'next') {
+                var Slide = nextSlide;
+                var Dot = nextDot;
+            }
+            else if (a == 'prev') {
+                var Slide = prevSlide;
+                var Dot = prevDot;
+            }
+            else {
+                var Slide = reqSlide;
+                var Dot = reqDot;
+            }
+
+            currentSlide.fadeOut(it).removeClass('current');
+            Slide.fadeIn(it).addClass('current');
+
+            currentDot.removeClass('active-dot');
+            Dot.addClass('active-dot');
+        }
+
+        $('.next').on('click', function () {
+            intslide('stop');
+            sact('next', 0, 400);
+            intslide('start');
+        });//next
+
+        $('.prev').on('click', function () {
+            intslide('stop');
+            sact('prev', 0, 400);
+            intslide('start');
+        });//prev
+
+        $('.dot').on('click', function () {
+            intslide('stop');
+            var index = $(this).index();
+            sact('dot', index, 400);
+            intslide('start');
+        });//prev
+        //slideshow
+    });
+
+</script>
+
+
+<!-- Start About Area -->
+<section class="about-section ptb-100" style="margin-top: -50px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="about-img wow fadeInLeft" data-wow-delay=".5s">
+                    <!-- <img src="/img/service/about.png" alt="image"> -->
+                    <iframe src="https://links.collect.chat/64004d94bddfe03b3a3ce524" width="90%" height="500"
+                        frameBorder="0"></iframe>
+                    <script async type="text/javascript" src="https://collectcdn.com/embed.js"></script>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class style="text-align: justify;"="about-text">
+                    <span>About Us</span>
+                    <h2>We are the best Pest Control and Termite Treatment Solution provider </h2>
+                    <p>The professional group of "Heena Pest Control Services" is among the leaders in the industry that
+                        specializes in
+                        protection against insects like rodents termites and spiders with Eco-friendly and approved
+                        chemicals for
+                        pest control. With the wide base of clientele in Vapi, Silvassa, Daman, Surat, Sachin, Umargam,
+                        Valsad, Naroli, Bhilad.
+                        we are the preferred choice of customers due to the professionalism and effective work of our
+                        team.</p>
+
+                    <p> Our team of experts assures the best and quality work in the concerned arena. We at Heena Pest
+                        Control Services
+                        are committed to providing best-in-class services and maintaining a healthy business
+                        relationship with
+                        each and every client. We do end-to-end pest management solutions for both commercial and
+                        residential
+                        spaces and are among the top reputed companies dealing with pest control in Gujarat, Silvassa,
+                        Daman. Apart
+                        from it we are available for industrial pest control and Fumigation Service.</p>
+
+                    <p>One can contact us for any of the pest control services including rodent, termite, spider,
+                        mosquito, and
+                        many more. We will deliver a science-based solutions to eliminate and prevent pests and will
+                        make sure
+                        they never take a bite out of your safety, and productivity.</p>
+                    <!--  <p>We guarantee a safe, effective and professional job every time. Through years of education, training & modern technology and year of experience.      </p>
+
+                            <p>Heena Pest Control is one of the most reputed companies dealing in the Pest Control Services and management services. With the help of highly qualified and experienced team of professionals, we are actively serving the clients with efficient and effective services .                            </p>
+<p>We uses only eco-friendly and approved chemicals for pest control. Our team members have clear understanding of the procedures followed for the effective pest control services.</p>
+                          <p>We also take care of your health while providing services and hence, we are the preferred choice of the clients. We are committed to provide best services and to maintain healthy business relation with every client. The chemicals used by us are sourced from the authentic and trusted vendors who always follow the rules regarding the production of chemicals. So far there are not adverse health hazard related complaints reported against us. We also carry the MSDS of all the chemicals that we use for the effective pest control. </p>  -->
+
+                    <a class="default-btn" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+<!-- Start Our Process Area -->
+<section class="our-process-section ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <span>Our Process</span>
+            <h2>Get amazing Pest Control in 4 simple steps</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-process">
+                    <i class="flaticon-gloves"></i>
+                    <h1 style="font-family: FANTASY;">INSPECTION
+                    </h1>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-process">
+                    <i class="flaticon-dustpan"></i>
+                    <h1 style="font-family: FANTASY;">IDENTIFY
+                    </h1>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-process">
+                    <i class="flaticon-hand-soap"></i>
+                    <h1 style="font-family: FANTASY;">COMMUNICATE
+                    </h1>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-process">
+                    <i class="flaticon-laundry"></i>
+                    <h1 style="font-family: FANTASY;">CONTROL
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Our Process Area -->
+
+<!-- Start Services Area -->
+<section class="services-section ptb-100">
+    <div class="container">
+        <div class="section-title text-left">
+            <span>Our Services</span>
+            <h2>Offering Best Featured Services</h2>
+            <p>We are proving all type of cleaning solutions for every small and big businesses, organizations and
+                homes.To continually improve ourselves, we have a team of professionally qualified personnel.
+            </p>
+            <a class="default-btn" href="">More Service</a>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <img src="/img/service/gene.jpg" alt="image">
+                    </div>
+
+                    <div class="services-content-wrapper">
+                        <h3><a href="general-pest-control">General Pest Control </a></h3>
+
+                        <div class="services-icon">
+                            <a href="general-pest-control"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <img src="/img/service/rodent.jpg" alt="image">
+                    </div>
+
+                    <div class="services-content-wrapper">
+                        <h3><a href="rodent-pest-control">Rodent Control </a></h3>
+
+                        <div class="services-icon">
+                            <a href="rodent-pest-control"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <img src="/img/service/cockroaches-pest-control-services-500x500.jpg" alt="image">
+                    </div>
+
+                    <div class="services-content-wrapper">
+                        <h3><a href="cockroach-pest-control">Cockroach Pest Control </a></h3>
+
+                        <div class="services-icon">
+                            <a href=""><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <img src="/img/service/wood.jpg" alt="image">
+                    </div>
+
+                    <div class="services-content-wrapper">
+                        <h3><a href="">Wood Borer Treatment </a></h3>
+
+                        <div class="services-icon">
+                            <a href=""><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <img src="/img/service/termite.jpg" alt="image">
+                    </div>
+
+                    <div class="services-content-wrapper">
+                        <h3><a href="">Termite treatment
+                            </a></h3>
+
+                        <div class="services-icon">
+                            <a href=""><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-services">
+                    <div class="services-img">
+                        <img src="/img/service/herbal.jpg" alt="image">
+                    </div>
+
+                    <div class="services-content-wrapper">
+                        <h3><a href="">Herbal Pest Control </a></h3>
+
+                        <div class="services-icon">
+                            <a href=""><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Services Area -->
+
+
+<!-- Start About Area -->
+<section class="about-section ptb-100" style="margin-top: -100px;">
+    <div class="container">
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-12">
+                <div class="about-text">
+                    <h2>Pest Control Services in Vapi is Just a call Away. Sanitization & Disinfection Services for Your
+                        Offices, Residents, Warehouses & Vehicles
+                    </h2>
+                    <p>Heena Pest Control Service offer complete range of professional Pest Control Services at
+                        reasonable costs. We are completely devoted to remove your all types of pest problems.We have
+                        been recognized as the highest growing Heena Pest Control Company in the India.
+
+                        We are at the beginning of new and innovative treatments in adjustment to deliver angry aegis
+                        for our customers. We are so assured in our service that we offer our clients a 100% Heena Pest
+                        Control provide leading pest control services in Vapi, Silvassa, Daman, Valsad with centralized
+                        head office in Vapi for rapid services of pest control in Vapi and Silvassa, Daman, Umargam,
+                        Valsad as well.
+                    </p>
+                    <!-- <div class="container" style="background-color:#444; padding: 10px">
+                            <h2 style="color:#fff;">Call us now on +91 98251 76003</h2>
+                        </div>
+                        <button class="btn btn-sm btn-success">Call Now</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+
+
+<!-- Start About Area -->
+<section class="about-section ptb-100" style="margin-top: -140px;">
+    <div class="container">
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-12">
+                <div class="about-text">
+                    <h2>Pest Control in Silvassa For Healthy Home </h2>
+                    <p>
+                        We all expect that our home should be healthy and safe for our kids and family, so we need to do
+                        some important things to keep it healthy and clean. Most considerable thing is to remove the
+                        pests from our homes because they can spread lots of diseases in our surroundings. Now the
+                        question arises that, how can we control the pest from spreading dirtiness and diseases. You can
+                        hire us, as we are a team of professional who provides pest control in Silvassa, Daman and Vapi.
+                        Heena Pest Control is one of the reputed pest control service provider in Gujarat, Silvassa,
+                        Daman. Vast experience and latest techniques have made our name and fame in the industry.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+<!-- Start About Area -->
+<section class="about-section ptb-100" style="margin-top: -140px;">
+    <div class="container">
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-12">
+                <div class="about-text">
+                    <h2>Pest Control Daman, Valsad – Pest Free Homes </h2>
+                    <p>
+                        Pest like termite, rodent, cockroaches, wood borer and lizard can create incredible damages in
+                        our home and offices. Rodent can ruin our important papers, cloths and eatables. Termite is one
+                        of the most destructive pests which can ruin our important and expensive furniture. But if you
+                        are living in Daman, then you don’t need to worry we provide best pest control in Daman or
+                        Valsad and near by area. So prevent pests from creating a big destruction before doing late.
+                        Pest control services are the most important thing which you have to use in your homes for safe
+                        and healthy environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+<!-- Start About Area -->
+<section class="about-section ptb-100" style="margin-top: -140px;">
+    <div class="container">
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-12">
+                <div class="about-text">
+                    <h2>Pest Control Umargam, Talasari- Odourless, Safe & Effective </h2>
+                    <p>
+                        Although there are lots of pest control service provider in city but you need to check the
+                        professional history of them and you should always choose a best and reputed pest control
+                        service provider. Pest control Umargam, Talashari, Dahnu can be provided by an ISO certified
+                        organization like Heena Pest Control in your budget. So prevent these unwanted creatures and
+                        provide a healthy environment your love ones. Call us anytime at +91-9825176003 for odourless,
+                        safe and effective pest control services.
+                    </p>
+                    <p>
+                        Heena Pest Control offers a large varies of Pest Control Services for residential and commercial
+                        properties also we are one of the oldest service provider of pest control in your area. We are
+                        one of the fastest growing Pest Control Companies. We have a standing for given that fast,
+                        reliable, on-time service for all our respected customers in this Business area. Our success can
+                        be contributed to our committed advisers who accept have committed to giving our clients the
+                        service they want... if they wish it. As a Superior of our company, we are committed to given
+                        that consumers like you with the top superior pest control services. Customer achievement is our
+                        primary goal.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+
+<!-- Start Estimate Area -->
+<!-- <div class="estimate-section ptb-100" style="margin-top: -100px;">
+            <div class="container">
+                <form method="POST" action="#">
+                @csrf
+                    <div class="form-wrapper">
+                        <div class="row">
+
+
+                            <div class="col-lg-4 col-md-6">
+                                <label>Your Name</label>
+                                <div class="form-group">
+                                    <input type="text" name="name"  class="form-control" id="id_name" placeholder="Enter your full name" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <label>Contact Number</label>
+                                <div class="form-group">
+                                    <input type="text" name="phone_number"  class="form-control" id="id_phone" placeholder="Enter Your contact no." required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <label>Email Address</label>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="id_email" placeholder="Enter Your email address" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group has-error">
+                                <textarea name="c_message" class="form-control" id="message" rows="6" required  placeholder="Message"></textarea>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <button type="submit" name="submit" class="default-btn">Submit</button>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+<!-- End Estimate Area -->
