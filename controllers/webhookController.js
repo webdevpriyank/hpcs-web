@@ -11,7 +11,7 @@ exports.webhookPost = async (req, res) => {
 
     let body = req.body;
 
-    console.log(JSON.stringify(req.body, null, 2));
+    console.log("BODY =======>>>>>> " + JSON.stringify(body, null, 2));
 
     if (req.body.object) {
         if (
