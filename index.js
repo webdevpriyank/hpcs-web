@@ -8,9 +8,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('prerender-node').set('prerenderToken', 'k3xIdbb9kjdtqrVs3yw9'));
 
 require('dotenv').config();
+app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.urlencoded( { extended: true } ));
-app = express().use(bodyParser.json());
 
 
 // Set EJS as the template engine
