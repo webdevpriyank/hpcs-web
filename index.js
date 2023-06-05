@@ -18,13 +18,13 @@ app.engine('html', require('ejs').renderFile); // Add this line
 app.set('view engine', 'html'); // Update this line
 app.set('views', './views');
 
-// Handle 404 errors
-// app.use((req, res, next) => {
-//     res.status(404).render('404');
-// });
+
 
 const routes = require('./routes/web')
 app.use('/', routes);
+
+const webhook = require('./routes/webhook')
+app.use('/webhook', webhook);
 
 
 const port = process.env.PORT || 3000;
