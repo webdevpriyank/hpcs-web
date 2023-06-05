@@ -9,6 +9,7 @@ exports.webhookPost = async (req, res) => {
     let body = req.body;
 
     console.log("BODY =======>>>>>> " + JSON.stringify(body, null, 2));
+    console.log("BODY =======>>>>>> " + body);
 
     if (req.body.object) {
         if (
