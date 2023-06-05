@@ -32,7 +32,7 @@ exports.webhookPost = async (req, res) => {
                     token,
                 data: {
                     messaging_product: "whatsapp",
-                    to: [from, 919913174798],
+                    to: from,
                     text: { body: `
                     Thank You for your message. We have received your message and our
                     representative will contact you as soon as possible.
@@ -43,7 +43,29 @@ exports.webhookPost = async (req, res) => {
                 },
                 headers: { "Content-Type": "application/json" },
             });
+
+            axios({
+                method: "POST", // Required, HTTP method, a string, e.g. POST, GET
+                url:
+                    "https://graph.facebook.com/v12.0/" +
+                    phone_number_id +
+                    "/messages?access_token=" +
+                    token,
+                data: {
+                    messaging_product: "whatsapp",
+                    to: 919913174798,
+                    text: { body: `
+                    Dear HPCS, You have received new lead as below. please respond as soon as possible.
+
+                    Lead Message is : 
+                    ` 
+                    + msg_body },
+                },
+                headers: { "Content-Type": "application/json" },
+            });
         }
+
+
         res.sendStatus(200);
     } else {
 
