@@ -8,8 +8,8 @@ exports.webhookPost = async (req, res) => {
 
     let body = req.body;
 
-    console.log("BODY =======>>>>>> " + JSON.stringify(body, null, 2));
-    console.log(typeof body);
+    // console.log("BODY =======>>>>>> " + JSON.stringify(body, null, 2));
+    // console.log(typeof body);
 
     if (req.body.object) {
         if (
@@ -32,8 +32,14 @@ exports.webhookPost = async (req, res) => {
                     token,
                 data: {
                     messaging_product: "whatsapp",
-                    to: from,
-                    text: { body: "Ack: " + msg_body },
+                    to: [from, 919913174798],
+                    text: { body: `
+                    Thank You for your message. We have received your message and our
+                    representative will contact you as soon as possible.
+
+                    Your Message is : 
+                    ` 
+                    + msg_body },
                 },
                 headers: { "Content-Type": "application/json" },
             });
