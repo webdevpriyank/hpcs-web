@@ -9,7 +9,7 @@ app.use(require('prerender-node').set('prerenderToken', 'k3xIdbb9kjdtqrVs3yw9'))
 
 require('dotenv').config();
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.urlencoded( { extended: true } ));
 
 
@@ -25,8 +25,8 @@ app.set('views', './views');
 const routes = require('./routes/web')
 app.use('/', routes);
 
-const webhook = require('./routes/webhook')
-app.use('/webhook', webhook);
+// const webhook = require('./routes/webhook')
+// app.use('/webhook', webhook);
 
 
 const port = process.env.PORT || 3000;
