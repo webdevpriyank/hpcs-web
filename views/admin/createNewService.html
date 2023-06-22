@@ -1,0 +1,74 @@
+<script src="https://cdn.tiny.cloud/1/xcgu6m6plfcyzhwyyqxm9cturkzbf5x6iwumkgufsw7izjpb/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#myEditor',
+        // Add other configuration options as needed
+    });
+</script>
+<h4 class="m-5">
+    Create New Service
+</h4>
+
+<div class="container">
+    <div class="form-wrapper">
+        <form action="/admin/createNewService" method="post" class="">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="form-group">
+                    <label for="serviceName">Please Enter Service Name</label>
+                    <input type="text" name="name" id="serviceName">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <label for="serviceName">Please Enter Description for Meta</label>
+                <input type="text" name="description" id="">
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <label for="serviceName">Please Enter Keywords for Meta</label>
+                <input type="text" name="keywords" id="">
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <label for="serviceName">Please Enter Breadcrum Title</label>
+                <input type="text" name="breadcrumTitle" id="">
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <label for="serviceName">Please Enter Image URL</label>
+                <input type="text" name="imageUrl" id="serviceName">
+            </div>
+
+            <div class=" ">
+                <label for="serviceName">Please Enter h1Title</label>
+                <input type="text" name="h1Title" id="serviceName">
+            </div>
+
+            <div class=" ">
+                <label for="serviceName">Please Enter Right Description</label>
+                <textarea type="text" name="descriptionRight" id="myEditor" width="50%"> </textarea>
+            </div>
+
+            <div class=" ">
+                <label for="serviceName">Please Enter Service Name</label>
+                <input type="text" name="h2Title" id="serviceName" placeholder="Service Name">
+            </div>
+
+            <div class=" ">
+                <label for="serviceName">Please Enter Service Name</label>
+                <input type="text" name="descriptionBottom" id="serviceName" placeholder="Service Name">
+            </div>
+
+            <div class=" ">
+                <label for="serviceName">Please Enter Service Name</label>
+                <input type="text" name="cityName" id="serviceName" placeholder="Service Name">
+            </div>
+
+            <div class=" ">
+                <button type="submit">Save New Service</button>
+            </div>
+        </form>
+    </div>
+</div>
